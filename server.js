@@ -7,13 +7,13 @@ const PORT = process.env.PORT || 7000
 require('dotenv').config()
 
 // Middleware
-app.use(express.json())
-app.use(morgan)('dev')
+app.use(express.json({limit: '50mb'}))
+app.use(morgan('dev'))
 
 // Routes
 
-app.use('/photos', require('./routes/photos'))
-app.use('/customer', require('./routes/customers'))
+// app.use('/photos', require('./routes/photos'))
+// app.use('/customer', require('./routes/customers'))
 app.use('/metadata', require('./routes/metadata'))
 
 // Connect to the DB

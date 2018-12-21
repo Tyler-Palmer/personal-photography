@@ -12,34 +12,37 @@ const dataSchema = new Schema({
         type: String,
         lowercase: true,
     },
-    FileSize:{
-        type: String,
-    },
-    FileType:{
-        type: String,
-    },
-    ImageWidth:{
-        type: Number
-    },
-    ImageHeight:{
-        type: Number
-    },
-    Make:{
+    CreateDate: {
         type: String
     },
-    Model:{
+    FileSize: {
+        type: String,
+    },
+    FileType: {
+        type: String,
+    },
+    ImageWidth: {
+        type: Number
+    },
+    ImageHeight: {
+        type: Number
+    },
+    Make: {
+        type: String
+    },
+    Model: {
         type: String
     },
     ISO: {
         type: Number
     },
-    ShutterSpeedValue: {
+    ExposureTime: {
         type: String
     },
     ApertureValue: {
         type: Number
     },
-    FocalLength:{
+    FocalLength: {
         type: String
     },
     Quality: {
@@ -48,7 +51,7 @@ const dataSchema = new Schema({
     Lens: {
         type: String
     },
-    LensID:{
+    LensID: {
         type: String
     },
     Megapixels: {
