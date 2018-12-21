@@ -5,8 +5,10 @@
   "dependencies": {
     "@material-ui/core": "^3.7.0",
     "@material-ui/icons": "^3.0.1",
+    "axios": "^0.18.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {
@@ -24,5 +26,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "localhost://7000"
+  "proxy": "http://localhost:7000"
 }
