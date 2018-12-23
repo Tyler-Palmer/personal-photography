@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 7000
 require('dotenv').config()
 
 // Middleware
-app.use(express.json({limit: '50mb'}))
+app.use(express.json({limit: '200mb'}))
 app.use(morgan('dev'))
 
 // Routes
@@ -18,7 +18,7 @@ app.use('/metadata', require('./routes/metadata'))
 
 // Connect to the DB
 
-mongoose.connect('mongodb://localhost:27017/photoweb', {useNewUrlParser: true}, () => {
+mongoose.connect('mongodb://localhost:27017/photoweb', {useNewUrlParser: true, useCreateIndex: true}, () => {
     console.log("We're connected, captain!")
 })
 
