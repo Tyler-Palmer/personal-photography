@@ -12,7 +12,7 @@
 /build
 
 # misc
-out.json
+/data
 .DS_Store
 .env
 .env.local
