@@ -8,9 +8,13 @@ class Analysis extends Component {
 
     componentDidMount() {
         this.props.getExposureTime()
+        this.props.getSunBurstData()
     }
 
+
     render() {
+        console.log(this.props.sunBurstData)
+        console.log(this.props.exposureTime)
         return (
             <div>
                 <div>

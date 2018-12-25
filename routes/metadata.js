@@ -16,17 +16,59 @@ metadataRouter.get('/', (req, res, next) => {
 
 metadataRouter.get('/exposureTime', (req, res, next) => {
 
-    MetaDatum.aggregate([{
-        $group: { "_id": "$ExposureTime", "total": { $sum: 1 } }
-    }], (err, data) => {
-        if (err) {
-            res.status(500)
+    MetaDatum.aggregate([
+        {
+            $group: {
+                "_id": "$ExposureTime", "total": { $sum: 1 }
+            }
+        }], (err, data) => {
+            if (err) {
+                res.status(500)
+                console.log(res)
+                return next(err)
+            }
             console.log(res)
-            return next(err)
-        }
-        console.log(res)
-        return res.status(200).send(data)
-    })
+            return res.status(200).send(data)
+        })
+})
+
+// { 
+//     $group: { 
+//       _id:   { age: "$age", gender: "$gender" }, 
+//       names: { $addToSet: "$name" } 
+//     } 
+//   }, 
+//   { 
+//     $group: {
+//       _id: { age: "$_id.age" }, 
+//       children: { $addToSet: { gender: "$_id.gender", names:"$names" } } 
+//     } 
+//   } 
+
+metadataRouter.get('/bigData', (req, res, next) => {
+    MetaDatum.aggregate([
+        {
+            $group: {
+                _id: {
+                    ISO: "$ISO", total: { $sum: 1 }
+                },
+                apertures: { $addToSet: "$ApertureValue" }
+            }
+        },
+        {
+            $group: {
+                _id: { ISO: "$_id.ISO" },
+                children: { $addToSet: { apertures: "$apertures", "total": { $sum: 1 } } }
+            }
+        }], (err, data) => {
+            if (err) {
+                res.status(500)
+                console.log(res)
+                return next(err)
+            }
+            console.log(res)
+            return res.status(200).send(data)
+        })
 })
 
 

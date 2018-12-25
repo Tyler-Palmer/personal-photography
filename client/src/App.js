@@ -4,7 +4,6 @@ import Home from './containers/Home'
 import '@material-ui/core'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Analysis from './containers/Analysis'
-import { withData } from './context/DataProvider'
 
 class App extends Component {
     render() {
@@ -24,4 +23,4 @@ class App extends Component {
     }
 }
 
-export default withData(App)
+export default App

@@ -11,7 +11,8 @@ class DataProvider extends Component {
             ISO: [],
             apertureValue: [],
             FocalLength: [],
-            CreateDate: []
+            CreateDate: [],
+            sunBurstData: []
         }
     }
     getExposureTime = () => {
@@ -19,10 +20,16 @@ class DataProvider extends Component {
             this.setState({
                 exposureTime: res.data
             })
-        })
-            .catch(err => console.log(err))
+        }).catch(err => console.log(err))
     }
 
+    getSunBurstData = () => {
+        axios.get('/metadata/bigData').then(res => {
+            this.setState({
+                sunBurstData: res.data
+            })
+        }).catch(err => console.log(err))
+    }
 
     render() {
         return (
@@ -32,7 +39,9 @@ class DataProvider extends Component {
                 apertureValue: this.state.apertureValue,
                 FocalLength: this.state.FocalLength,
                 CreateDate: this.state.CreateDate,
-                getExposureTime: this.getExposureTime
+                sunBurstData: this.state.sunBurstData,
+                getExposureTime: this.getExposureTime,
+                getSunBurstData: this.getSunBurstData
             }}>
                 {this.props.children}
             </Provider>
