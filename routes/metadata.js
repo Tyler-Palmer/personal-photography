@@ -45,6 +45,18 @@ metadataRouter.get('/exposureTime', (req, res, next) => {
 //     } 
 //   } 
 
+// {
+//     $group: {
+//         _id: "$_id.ASSIGN_ID",
+//         STATUS_GROUP: {
+//             $push: {
+//                 STATUS: "$_id.STATUS",
+//                 count: "$count"
+//             }
+//         }
+//     }
+// }])
+
 metadataRouter.get('/bigData', (req, res, next) => {
     MetaDatum.aggregate([
         {
@@ -52,13 +64,20 @@ metadataRouter.get('/bigData', (req, res, next) => {
                 _id: {
                     ISO: "$ISO", total: { $sum: 1 }
                 },
-                apertures: { $addToSet: "$ApertureValue" }
+                apertures: { $addToSet: "$ApertureValue" }, total: { $sum: 1 }
             }
         },
         {
             $group: {
-                _id: { ISO: "$_id.ISO" },
-                children: { $addToSet: { apertures: "$apertures", "total": { $sum: 1 } } }
+                _id: {
+                    ISO: "$_id.ISO"
+                },
+                children: {
+                    $push: {
+                        apertures: "$apertures",
+                        "total": "$total"
+                    }
+                }
             }
         }], (err, data) => {
             if (err) {

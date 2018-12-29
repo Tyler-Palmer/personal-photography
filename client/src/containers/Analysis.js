@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import { Col, Row, Container } from 'reactstrap'
 import '../styles/analysis.css'
-import '@material-ui/core'
-import { VictoryPie} from 'victory'
+import { VictoryPie } from 'victory'
 import { withData } from '../context/DataProvider'
 
 class Analysis extends Component {
@@ -17,14 +17,18 @@ class Analysis extends Component {
         console.log(this.props.exposureTime)
         return (
             <div>
-                <div>
-                    This is the Analysis Page
+                <Container>
+                    <Row>
+                        <Col xs={18} md={12}>
+                            This is the Analysis Page
                         <VictoryPie data={this.props.exposureTime}
-                            // data accessor for x values
-                            x="_id"
-                            // data accessor for y values
-                            y="total" />
-                </div>
+                                // data accessor for x values
+                                x="_id"
+                                // data accessor for y values
+                                y="total" />
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         )
     }
