@@ -11,7 +11,17 @@ class PhotoProvider extends Component{
             gallery2: [],
             gallery3: []
         }
+        console.log(this.state.gallery1)
     }
+
+    componentDidMount(){
+        axios.get('/photos/gallery1').then(res => {
+            this.setState({
+                gallery1: res.data
+            })
+        }).catch(err => console.log(err))
+    }
+
     render(){
         return(
            <Provider value={{
