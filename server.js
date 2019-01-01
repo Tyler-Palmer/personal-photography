@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
-const photoRouter = express.Router()
 const PORT = process.env.PORT || 7000
 require('dotenv').config()
 

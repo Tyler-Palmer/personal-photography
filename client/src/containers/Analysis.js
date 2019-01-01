@@ -14,10 +14,8 @@ class Analysis extends Component {
         this.props.getCreateDate()
     }
 
-
     render() {
         console.log(this.props.sunBurstData)
-        console.log(this.props.exposureTime)
         return (
             <div>
                 <Container>

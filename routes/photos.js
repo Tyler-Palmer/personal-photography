@@ -1,5 +1,6 @@
 const express = require('express')
 const photoRouter = express.Router()
+const cors = require('cors')
 const Photo = require ('../models/photo')
 
 photoRouter.get('/', (req, res, next) => {
@@ -12,7 +13,7 @@ photoRouter.get('/', (req, res, next) => {
     })
 })
 
-photoRouter.get('/gallery1', (req, res, next) => {
+photoRouter.get('/gallery1', cors(), (req, res, next) => {
     Photo.find((err, data) => {
         if(err) {
             res.status(500)
