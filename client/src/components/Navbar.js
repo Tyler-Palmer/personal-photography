@@ -31,7 +31,7 @@ class Navbar1 extends Component {
     }
     render() {
         return (
-            <div className="fullscreen">
+           <Container id="sideNav" fluid>
                 <MediaQuery query="(max-device-width: 425px)">
                     <Navbar color="light" expand="md">
                         <NavbarBrand id="nav-title" href="/">Tyler Palmer Photography</NavbarBrand>
@@ -61,7 +61,7 @@ class Navbar1 extends Component {
                     </Navbar>
                 </MediaQuery>
                 <MediaQuery query="(min-device-width: 426px)">
-                    <Container id="sideNav" fluid>
+                    
                                 <Navbar color="light" expand="xs">
                                     <NavbarBrand id="nav-title" href="/">Tyler Palmer Photography</NavbarBrand>
                                     <NavbarToggler onClick={this.toggle} />
@@ -88,10 +88,9 @@ class Navbar1 extends Component {
                                         </Nav>
                                     </Collapse>
                                 </Navbar>
-                    </Container>
 
                 </MediaQuery>
-            </div>
+            </Container>
         )
     }
 }

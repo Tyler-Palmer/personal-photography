@@ -4,7 +4,14 @@ import '../styles/galleries.css'
 import { withData } from '../context/DataProvider'
 
 class Galleries extends Component{
-    
+    constructor(){
+        super()
+        this.state = {
+            gallery1: [],
+            gallery2: [],
+            gallery3: []
+        }
+    }
     render(){
         return(
             <div>
