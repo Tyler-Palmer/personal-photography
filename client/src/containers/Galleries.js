@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Col, Row, Container } from 'reactstrap'
 import '../styles/galleries.css'
-import { withData } from '../context/DataProvider'
+import { withPhotos } from '../context/PhotosProvider'
 
 class Galleries extends Component{
     constructor(){
@@ -21,4 +21,4 @@ class Galleries extends Component{
     }
 }
 
-export default withData(Galleries)
+export default withPhotos(Galleries)

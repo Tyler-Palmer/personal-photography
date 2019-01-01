@@ -12,7 +12,7 @@ app.use(morgan('dev'))
 
 // Routes
 
-// app.use('/photos', require('./routes/photos'))
+app.use('/photos', require('./routes/photos'))
 // app.use('/customer', require('./routes/customers'))
 app.use('/metadata', require('./routes/metadata'))
 
