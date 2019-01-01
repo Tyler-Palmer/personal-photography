@@ -9,6 +9,9 @@ class Analysis extends Component {
     componentDidMount() {
         this.props.getExposureTime()
         this.props.getSunBurstData()
+        this.props.getISO()
+        this.props.getAperture()
+        this.props.getCreateDate()
     }
 
 

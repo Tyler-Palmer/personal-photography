@@ -11,7 +11,6 @@ class PhotoProvider extends Component{
             gallery2: [],
             gallery3: []
         }
-        console.log(this.state.gallery1)
     }
 
     componentDidMount(){

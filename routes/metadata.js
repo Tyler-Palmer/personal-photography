@@ -32,6 +32,57 @@ metadataRouter.get('/exposureTime', (req, res, next) => {
         })
 })
 
+metadataRouter.get('/ISO', (req,res,next) => {
+    MetaDatum.aggregate([
+        {
+            $group: {
+                "_id": "$ISO", "total": { $sum: 1 }
+            } 
+    }], (err, data) => {
+        if (err) {
+            res.status(500)
+            console.log(res)
+            return next(err)
+        }
+        console.log(res)
+        return res.status(200).send(data)
+    })
+})
+
+metadataRouter.get('/apertureValue', (req,res,next) => {
+    MetaDatum.aggregate([
+        {
+            $group: {
+                "_id": "$ApertureValue", "total": { $sum: 1 }
+            } 
+    }], (err, data) => {
+        if (err) {
+            res.status(500)
+            console.log(res)
+            return next(err)
+        }
+        console.log(res)
+        return res.status(200).send(data)
+    })
+})
+
+metadataRouter.get('/createDate', (req,res,next) => {
+    MetaDatum.aggregate([
+        {
+            $group: {
+                "_id": "$CreateDate", "total": { $sum: 1 }
+            } 
+    }], (err, data) => {
+        if (err) {
+            res.status(500)
+            console.log(res)
+            return next(err)
+        }
+        console.log(res)
+        return res.status(200).send(data)
+    })
+})
+
 // { 
 //     $group: { 
 //       _id:   { age: "$age", gender: "$gender" }, 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import MediaQuery from "react-responsive"
-import Galleries from '../containers/Galleries'
 import {
     Navbar,
     Nav,
@@ -61,7 +60,6 @@ class Navbar1 extends Component {
                     </Navbar>
                 </MediaQuery>
                 <MediaQuery query="(min-device-width: 426px)">
-                    
                                 <Navbar color="light" expand="xs">
                                     <NavbarBrand id="nav-title" href="/">Tyler Palmer Photography</NavbarBrand>
                                     <NavbarToggler onClick={this.toggle} />
@@ -88,7 +86,6 @@ class Navbar1 extends Component {
                                         </Nav>
                                     </Collapse>
                                 </Navbar>
-
                 </MediaQuery>
             </Container>
         )

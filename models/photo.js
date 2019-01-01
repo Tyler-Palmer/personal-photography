@@ -2,14 +2,22 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const photoSchema = new Schema({
-    FileName: {
+    filename: {
         type: String,
         unique: true,
         required: true,
         lowercase: true,
     },
-    URL: {
+    src: {
         type: String,
+        required: true,
+    },
+    width: {
+        type: Number,
+        required: true
+    },
+    height: {
+        type: Number,
         required: true,
     }
 })

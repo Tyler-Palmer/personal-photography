@@ -23,12 +23,34 @@ class DataProvider extends Component {
         }).catch(err => console.log(err))
     }
 
+    getISO = () => {
+        axios.get('/metadata/ISO').then(res => {
+            this.setState({
+                ISO: res.data
+            })
+        }).catch(err => console.log(err))
+    }
+
     getSunBurstData = () => {
         axios.get('/metadata/bigData').then(res => {
             this.setState({
                 sunBurstData: res.data
             })
         }).catch(err => console.log(err))
+    }
+    getAperture = () => {
+        axios.get('/metadata/apertureValue').then(res => {
+            this.setState({
+                apertureValue: res.data
+            })
+        }).catch(err => console.log(err))
+    }
+    getCreateDate = () => {
+        axios.get('/metadata/createDate').then(res => {
+            this.setState({
+                CreateDate: res.data
+            })
+        })
     }
 
     render() {
@@ -41,7 +63,10 @@ class DataProvider extends Component {
                 CreateDate: this.state.CreateDate,
                 sunBurstData: this.state.sunBurstData,
                 getExposureTime: this.getExposureTime,
-                getSunBurstData: this.getSunBurstData
+                getSunBurstData: this.getSunBurstData,
+                getISO: this.getISO,
+                getAperture: this.getAperture,
+                getCreateDate: this.getCreateDate
             }}>
                 {this.props.children}
             </Provider>

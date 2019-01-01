@@ -6,10 +6,8 @@ photoRouter.get('/', (req, res, next) => {
     Photo.find((err, data) => {
         if(err) {
             res.status(500)
-            console.log(res)
             return next(err)
         }
-        console.log(res)
         return res.status(200).send(data)
     })
 })
@@ -18,10 +16,8 @@ photoRouter.get('/gallery1', (req, res, next) => {
     Photo.find((err, data) => {
         if(err) {
             res.status(500)
-            console.log(res)
             return next(err)
         }
-        console.log(res)
         return res.status(200).send(data)
     })
 })
