@@ -6,7 +6,7 @@ import PhotoProvider from './context/PhotoProvider'
 import App from './App'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootswatch/dist/materia/bootstrap.min.css'
-import './styles/style.css'
+import './styles/style.scss'
 
 
 

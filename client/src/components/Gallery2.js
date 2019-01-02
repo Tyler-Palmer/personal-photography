@@ -2,7 +2,7 @@ import React from 'react'
 
 const Gallery2 = (props) => {
     return (
-        <div className="image1" style={{ backgroundImage: `url(${props.src})` }}>
+        <div className="image2 gallerySlide" style={{ backgroundImage: `url(${props.src})` }}>
         </div>
     )
 }
