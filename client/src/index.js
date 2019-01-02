@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import DataProvider from './context/DataProvider'
 import PhotoProvider from './context/PhotoProvider'
 import App from './App'
-import 'bootstrap/dist/css/bootstrap.css'
-import '../node_modules/bootswatch/dist/materia/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+// import '../node_modules/bootswatch/dist/materia/bootstrap.min.css'
 import './styles/style.scss'
 
 
