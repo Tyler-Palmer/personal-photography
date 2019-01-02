@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ImageGallery from 'react-image-gallery'
+import { UncontrolledCarousel } from 'reactstrap' 
 import { Col, Row, Container } from 'reactstrap'
 import '../styles/home.css'
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -29,9 +30,7 @@ class Home extends Component {
                 autoPlay={true}
                 slideInterval={12000}
                 slideDuration={900}
-                disableArrowKeys={true}
                 useBrowserFullscreen={true} />
-
         )
     }
 }
