@@ -163,27 +163,27 @@ metadataRouter.get('/createDate', (req, res, next) => {
 
 metadataRouter.get('/bigData', (req, res, next) => {
     MetaDatum.aggregate([
-    {
-        $group: {
-            _id: {
-                ISO: "$ISO", total: { $sum: 1 }
-            },
-            apertures: { $addToSet: "$ApertureValue" }, total: { $sum: 1 }
-        }
-    },
-    {
-        $group: {
-            _id: {
-                ISO: "$_id.ISO"
-            },
-            children: {
-                $push: {
-                    apertures: "$apertures",
-                    "total": "$total"
+            {
+                $group: {
+                    _id: {
+                        ISO: "$ISO", total: { $sum: 1 }
+                    },
+                    apertures: { $addToSet: "$ApertureValue" }, total: { $sum: 1 }
                 }
-            }
-        }
-    }], (err, data) => {
+            },
+            {
+                $group: {
+                    _id: {
+                        ISO: "$_id.ISO"
+                    },
+                    children: {
+                        $push: {
+                            apertures: "$apertures",
+                            "total": "$total"
+                        }
+                    }
+                }
+            }], (err, data) => {
             if (err) {
                 res.status(500)
                 console.log(res)

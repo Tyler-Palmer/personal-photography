@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Col, Row, Container } from 'reactstrap'
 import '../styles/galleries.css'
 import { withPhotos } from '../context/PhotoProvider'
+import Gallery1 from '../components/Gallery1'
+import '../styles/gallery.css'
 
 class Galleries extends Component{
 
@@ -12,7 +14,7 @@ class Galleries extends Component{
                 <div id="gallery1">
                     <h3>Gallery1</h3>
                     {
-
+                    this.props.gallery1.map((item,i) => <Gallery1 {...item} key={i} />)
                     }
                 </div>
                 <div id="gallery2">
@@ -24,7 +26,7 @@ class Galleries extends Component{
                 <div id="gallery3">
                     <h3>Gallery3</h3>
                     {
-                        
+
                     }
                 </div>
             </div>
