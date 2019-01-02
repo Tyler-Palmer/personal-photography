@@ -13,6 +13,8 @@ photoRouter.get('/', (req, res, next) => {
     })
 })
 
+//gallery1
+
 photoRouter.get('/gallery1', cors(), (req, res, next) => {
     Photo.find((err, data) => {
         if(err) {
@@ -24,6 +26,52 @@ photoRouter.get('/gallery1', cors(), (req, res, next) => {
 })
 
 photoRouter.post('/gallery1', (req,res,next) => {
+    const newPhoto = new Photo(req.body)
+    newPhoto.save((err, newPhoto) =>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(201).send(newPhoto)
+    })
+})
+
+//gallery2
+
+photoRouter.get('/gallery2', cors(), (req, res, next) => {
+    Photo.find((err, data) => {
+        if(err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(data)
+    })
+})
+
+photoRouter.post('/gallery2', (req,res,next) => {
+    const newPhoto = new Photo(req.body)
+    newPhoto.save((err, newPhoto) =>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(201).send(newPhoto)
+    })
+})
+
+//gallery3
+
+photoRouter.get('/gallery3', cors(), (req, res, next) => {
+    Photo.find((err, data) => {
+        if(err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(data)
+    })
+})
+
+photoRouter.post('/gallery3', (req,res,next) => {
     const newPhoto = new Photo(req.body)
     newPhoto.save((err, newPhoto) =>{
         if(err){

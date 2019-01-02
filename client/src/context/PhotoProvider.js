@@ -19,6 +19,16 @@ class PhotoProvider extends Component{
                 gallery1: res.data
             })
         }).catch(err => console.log(err))
+        axios.get('/photos/gallery2').then(res => {
+            this.setState({
+                gallery2: res.data
+            })
+        }).catch(err => console.log(err))
+        axios.get('/photos/gallery3').then(res => {
+            this.setState({
+                gallery3: res.data
+            })
+        }).catch(err => console.log(err))
     }
 
     render(){
