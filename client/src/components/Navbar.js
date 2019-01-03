@@ -34,7 +34,7 @@ class Navbar1 extends Component {
                 <MediaQuery maxWidth={768}>
                 <div className={!this.props.displays ? "display" : ''}>
                     <Navbar color="light" expand="sm">
-                        <NavbarBrand href="/">reactstrap</NavbarBrand>
+                        <NavbarBrand href="/">Tyler Palmer Photography</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
@@ -55,7 +55,7 @@ class Navbar1 extends Component {
                 <MediaQuery minWidth={769}>
                     <div className={!this.props.displays ? "display" : ''}>
                         <Navbar color="light" expand="sm">
-                            <NavbarBrand href="/">reactstrap</NavbarBrand>
+                            <NavbarBrand href="/">Tyler Palmer Photography</NavbarBrand>
                             <NavbarToggler onClick={this.toggle} />
                             <Collapse isOpen={this.state.isOpen} navbar>
                                 <Nav className="ml-auto sidebar1" navbar>
