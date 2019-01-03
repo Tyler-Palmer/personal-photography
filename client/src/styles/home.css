@@ -1,6 +1,11 @@
-@font-face { 
+/* @font-face { 
     font-family: "TitilliumWeb-Black";
     src: url('../fonts/Titillium_Web/TitilliumWeb-Black.ttf') format('ttf');
+    } */
+
+@font-face {
+    font-family: 'break_bold';
+    src: local('break_bold'), url('../fonts/Break_Font/break_bold.ttf') format('ttf');
     }
 
 html, body{
@@ -38,7 +43,7 @@ html, body{
 #homeBox{
     z-index: 2;
     position: absolute;
-    height: 40vh;
+    height: 25vh;
     width: 60vw;
     background: #009FFF;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);  /* Chrome 10-25, Safari 5.1-6 */
@@ -47,9 +52,17 @@ html, body{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+#homeBox:hover{
+    opacity: .9;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 h1{
-    font-family: "TitilliumWeb-Black";
-    font-size: 4em;
+    font-family: "break_bold" !important;
+    font-size: 6em !important;
+    font-weight: 700 !important;
 }

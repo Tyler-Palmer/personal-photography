@@ -15,6 +15,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.2",
     "react-sidebar": "^3.0.2",
+    "react-transition-group": "^2.5.2",
     "reactstrap": "^6.5.0",
     "victory": "^31.0.2"
   },
@@ -33,5 +34,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:7000"
+  "proxy": "http://localhost:7001"
 }

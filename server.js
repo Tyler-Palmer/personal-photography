@@ -14,7 +14,6 @@ app.use(morgan('dev'))
 app.use('/photos', require('./routes/photos'))
 // app.use('/customer', require('./routes/customers'))
 app.use('/metadata', require('./routes/metadata'))
-
 // Connect to the DB
 
 mongoose.connect('mongodb://localhost:27017/photoweb', {useNewUrlParser: true, useCreateIndex: true}, () => {

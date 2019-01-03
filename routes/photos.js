@@ -3,6 +3,7 @@ const photoRouter = express.Router()
 const cors = require('cors')
 const Photo = require ('../models/photo')
 
+
 photoRouter.get('/', (req, res, next) => {
     Photo.find((err, data) => {
         if(err) {
@@ -15,7 +16,7 @@ photoRouter.get('/', (req, res, next) => {
 
 //gallery1
 
-photoRouter.get('/gallery1', cors(), (req, res, next) => {
+photoRouter.get('/gallery1', (req, res, next) => {
     Photo.find((err, data) => {
         if(err) {
             res.status(500)
@@ -25,6 +26,8 @@ photoRouter.get('/gallery1', cors(), (req, res, next) => {
     })
 })
 
+
+
 photoRouter.post('/gallery1', (req,res,next) => {
     const newPhoto = new Photo(req.body)
     newPhoto.save((err, newPhoto) =>{
@@ -33,6 +36,16 @@ photoRouter.post('/gallery1', (req,res,next) => {
             return next(err)
         }
         return res.status(201).send(newPhoto)
+    })
+})
+
+photoRouter.get('/galleryView/:id', (req, res, next) =>{
+    Photo.findOne({_id: req.params.id}, (err, data) =>{
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(data)
     })
 })
 

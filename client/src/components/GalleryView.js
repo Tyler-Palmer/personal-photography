@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 import { withPhotos } from '../context/PhotoProvider'
-import Gallery from 'react-photo-gallery'
 
-class GalleryView extends component{
+
+class GalleryView extends Component{
+    constructor(){
+        super()
+    }
+
+    componentDidMount(){
+        this.props.getEachData(this.props.match.params.id)
+    }
+
     render(){
+        console.log(this.props)
+        console.log(this.props.galleryData)
         return(
             <div>
-            <Gallery photos = {this.props.gallery1} />
-                <div className ="hello-image"
-                style = {{backgroundImage: `url("https://images.pexels.com/photos/988872/pexels-photo-988872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")`}}
-                ></div>
+                <div></div>
             </div>
         )
     }

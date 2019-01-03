@@ -9,7 +9,8 @@ class PhotoProvider extends Component{
         this.state = {
             gallery1: [],
             gallery2: [],
-            gallery3: []
+            gallery3: [],
+            galleryData: {},
         }
     }
 
@@ -31,12 +32,20 @@ class PhotoProvider extends Component{
         }).catch(err => console.log(err))
     }
 
+    getEachData = (id) =>{
+        axios.get(`/photos/galleryView/${id}`).then(res =>{
+            console.log(res)
+            this.setState({
+                galleryData: res.data
+            })
+        })
+    }
+
     render(){
         return(
            <Provider value={{
-               gallery1: this.state.gallery1,
-               gallery2: this.state.gallery2,
-               gallery3: this.state.gallery3
+               ...this.state,
+               getEachData: this.getEachData
            }}>
                 {this.props.children}
            </Provider>
