@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 const Gallery1 = (props) => {
     const generateRandomClass = () => {
         const randomNumber = Math.floor(Math.random() * 200);
+        console.log(randomNumber)
         if (randomNumber % 3 === 0 && randomNumber % 5 === 0) {
             return "big-one"
         } else if (randomNumber % 3 === 0) {

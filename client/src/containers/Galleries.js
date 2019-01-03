@@ -17,20 +17,28 @@ class Galleries extends Component {
         console.log(this.props.gallery2)
         return (
             <div id="galleries">
-                <h3>Gallery1</h3>
+                <div className="galleryBar">
+                    <h3>Gallery1</h3>
+                </div>
                 <div id="gallery1">
                     {
                         this.props.gallery1.map((item, i) => <Gallery1 {...item} key={i} />)
                     }
                 </div>
-                <div id="gallery2">
+                <div className="galleryBar">
                     <h3>Gallery2</h3>
+                </div>
+                <div id="gallery2">
+                
                     {
                         this.props.gallery2.map((item, i) => <Gallery2 {...item} key={i} />)
                     }
                 </div>
-                <div id="gallery3">
+                <div className="galleryBar">
                     <h3>Gallery3</h3>
+                </div>
+                <div id="gallery3">
+            
                     {
                         this.props.gallery3.map((item, i) => <Gallery3 {...item} key={i} />)
                     }
