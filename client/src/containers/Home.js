@@ -39,7 +39,7 @@ class Home extends Component {
                 slideDuration={900}
                 useBrowserFullscreen={true} /> */}
                 <div id="homeBackground">
-                    <div id="homeBox">
+                    <div id="homeBox" className="hvr-bounce-to-right">
                         <h1>Tyler Palmer</h1>
                     </div>
                 </div>

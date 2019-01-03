@@ -9,11 +9,6 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
 } from 'reactstrap'
 import '../styles/navbar.css'
 // import '../../node_modules/bootswatch/dist/materia/bootstrap.min.css'

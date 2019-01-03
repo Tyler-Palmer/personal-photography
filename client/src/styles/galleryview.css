@@ -1,0 +1,14 @@
+.imageMenu{
+    display: grid;
+    grid-template-columns: 1fr .4fr;
+    grid-template-rows: 1fr;
+}
+
+.focusImage{
+    margin-left: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    grid-column: 1/2;
+    grid-row: 1/-1
+}
