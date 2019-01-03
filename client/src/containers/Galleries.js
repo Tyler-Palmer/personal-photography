@@ -5,10 +5,13 @@ import { withPhotos } from '../context/PhotoProvider'
 import Gallery1 from '../components/Gallery1'
 import Gallery2 from '../components/Gallery2'
 import Gallery3 from '../components/Gallery3'
+import { withNav } from '../context/NavbarProvider'
 
 
 class Galleries extends Component {
-
+    componentDidMount(){
+        this.props.noSidebar()
+    }
     render() {
         console.log(this.props.gallery1)
         console.log(this.props.gallery2)
@@ -37,4 +40,4 @@ class Galleries extends Component {
     }
 }
 
-export default withPhotos(Galleries)
+export default withNav(withPhotos(Galleries))

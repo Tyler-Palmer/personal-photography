@@ -162,34 +162,61 @@ metadataRouter.get('/createDate', (req, res, next) => {
 //     }]
 
 metadataRouter.get('/bigData', (req, res, next) => {
-    MetaDatum.aggregate([
-            {
-                $group: {
-                    _id: {
-                        ISO: "$ISO", total: { $sum: 1 }
-                    },
-                    apertures: { $addToSet: "$ApertureValue" }, total: { $sum: 1 }
-                }
+    const output = {};
+    // MetaDatum.find()
+    //     .then(mainData => mainData.reduce((acc, doc) => {
+
+    //     }, {name: 'photos', children: [], total: 0}),
+    // MetaDatum.mapReduce({
+    //     map: function () { emit(this.ISO, 1) },
+    //     reduce: function (key, val) { 
+    //         return key 
+    //     }
+    // },
+    MetaDatum.aggregate({
+        $group: {
+            _id: {
+                ISO: "$ISO"
             },
-            {
-                $group: {
-                    _id: {
-                        ISO: "$_id.ISO"
-                    },
-                    children: {
-                        $push: {
-                            apertures: "$apertures",
-                            "total": "$total"
-                        }
-                    }
-                }
-            }], (err, data) => {
+        }
+    })
+        .then(isos => {
+            isos.reduce((acc, iso) => {
+                MetaDatum.aggregate({
+                    $match: { ISO: iso._id.ISO }
+                }).then()
+            })
+        })
+
+
+    MetaDatum.aggregate([
+        {
+            $group: {
+                _id: {
+                    ISO: "$ISO"
+                },
+                // apertures: { $addToSet: { name: "$ApertureValue", exposureTime: "$ExposureTime" } }, total: { $sum: 1 }
+            }
+        },
+        // {
+        //     $group: {
+        //         _id: {
+        //             ISO: "$_id.ISO"
+        //         },
+        //         children: {
+        //             $push: {
+        //                 apertures: "$apertures",
+        //                 "total": "$total"
+        //             }
+        //         }
+        //     }
+        // }
+    ],
+        (err, data) => {
             if (err) {
                 res.status(500)
-                console.log(res)
                 return next(err)
             }
-            console.log(res)
             return res.status(200).send(data)
         })
 })

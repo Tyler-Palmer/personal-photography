@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
-const PORT = process.env.PORT || 7000
+const PORT = process.env.PORT || 7001
 require('dotenv').config()
 
 // Middleware

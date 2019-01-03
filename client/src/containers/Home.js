@@ -2,11 +2,17 @@ import React, { Component } from 'react'
 import ImageGallery from 'react-image-gallery'
 import { UncontrolledCarousel } from 'reactstrap' 
 import { Col, Row, Container } from 'reactstrap'
+import { withNav } from '../context/NavbarProvider'
 import '../styles/home.css'
 import "react-image-gallery/styles/css/image-gallery.css";
 
 
 class Home extends Component {
+
+    componentDidMount(){
+        this.props.setSideBar()
+    }
+
     render() {
         const images = [
             {
@@ -35,4 +41,4 @@ class Home extends Component {
     }
 }
 
-export default Home
+export default withNav(Home)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import MediaQuery from "react-responsive"
+import { withNav } from '../context/NavbarProvider'
 import {
     Collapse,
     Navbar,
@@ -14,7 +15,6 @@ import {
     DropdownMenu,
     DropdownItem
 } from 'reactstrap'
-import Sidebar from 'react-sidebar'
 import '../styles/navbar.css'
 // import '../../node_modules/bootswatch/dist/materia/bootstrap.min.css'
 
@@ -23,25 +23,20 @@ class Navbar1 extends Component {
         super(props)
         this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false,
-            sidebarOpen: true
+            isOpen: false
         }
-        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this)
     }
     toggle() {
         this.setState({
             isOpen: !this.state.isOpen
         })
-    }
-    onSetSidebarOpen(open) {
-        this.setState({ sidebarOpen: open });
+
     }
     render() {
         return (
             <div>
-                {/* <MediaQuery query="(max-device-width: 425px)">
-                    <div>
-                        <Navbar color="light" light expand="xs">
+                <MediaQuery maxWidth={768}>
+                        <Navbar color="light" light expand="sm">
                             <NavbarBrand href="/">reactstrap</NavbarBrand>
                             <NavbarToggler onClick={this.toggle} />
                             <Collapse isOpen={this.state.isOpen} navbar>
@@ -58,9 +53,8 @@ class Navbar1 extends Component {
                                 </Nav>
                             </Collapse>
                         </Navbar>
-                    </div>
-                </MediaQuery> */}
-                <MediaQuery query="(min-device-width: 769px)">
+                </MediaQuery>
+                <MediaQuery minWidth={769}>
                     <div id="sidebar">
                     <Navbar color="light" light expand="sm">
                         <NavbarBrand href="/">reactstrap</NavbarBrand>
@@ -80,20 +74,10 @@ class Navbar1 extends Component {
                         </Collapse>
                     </Navbar>
                     </div>
-                    {/* <Sidebar
-                        sidebar={<b>Sidebar content</b>}
-                        open={false}
-                        onSetOpen={this.onSetSidebarOpen}
-                        styles={{ sidebar: { background: "white" } }}
-                    >
-                        <button onClick={() => this.onSetSidebarOpen(true)}>
-                            Open sidebar
-                        </button>
-                    </Sidebar> */}
                 </MediaQuery>
             </div>
         )
     }
 }
 
-export default Navbar1
+export default withNav(Navbar1)
