@@ -14,6 +14,7 @@ import {
     DropdownMenu,
     DropdownItem
 } from 'reactstrap'
+import Sidebar from 'react-sidebar'
 import '../styles/navbar.css'
 // import '../../node_modules/bootswatch/dist/materia/bootstrap.min.css'
 
@@ -22,49 +23,25 @@ class Navbar1 extends Component {
         super(props)
         this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false
-        };
+            isOpen: false,
+            sidebarOpen: true
+        }
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this)
     }
     toggle() {
         this.setState({
             isOpen: !this.state.isOpen
-        });
+        })
+    }
+    onSetSidebarOpen(open) {
+        this.setState({ sidebarOpen: open });
     }
     render() {
         return (
             <div>
-                <MediaQuery query="(max-device-width: 425px)">
-                    <Navbar color="light" expand="md">
-                        <NavbarBrand id="nav-title" href="/">Tyler Palmer Photography</NavbarBrand>
-                        <NavbarToggler onClick={this.toggle} />
-                        <Collapse isOpen={this.state.isOpen} navbar>
-                            <span class="navbar-toggler-icon"></span>
-                            <Nav className="ml-auto" navbar>
-                                <NavItem>
-                                    <Link className="p-2 navlink" to='/analysis'>Analysis</Link>
-                                </NavItem>
-                                <NavItem>
-                                    <Link className="p-2 navlink" to='/about'>About</Link>
-                                </NavItem>
-                                <NavItem className="gallery-image">
-                                    <Link className="p-2 navlink" to='/galleries'>Galleries</Link>
-                                    <div style={{ paddingRight: '3px', paddingTop: '3px', display: 'inline-block', backgroundImage: `url("../icons/gallery_24px.png")` }}>
-                                    </div>
-                                </NavItem>
-                                {/* <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                                <MenuItem eventKey={3.1}>Action</MenuItem>
-                                <MenuItem eventKey={3.2}>Another action</MenuItem>
-                                <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                                <MenuItem divider />
-                                <MenuItem eventKey={3.3}>Separated link</MenuItem>
-                            </NavDropdown> */}
-                            </Nav>
-                        </Collapse>
-                    </Navbar>
-                </MediaQuery>
-                <MediaQuery query="(min-device-width: 426px)">
+                {/* <MediaQuery query="(max-device-width: 425px)">
                     <div>
-                        <Navbar color="light" light expand="md">
+                        <Navbar color="light" light expand="xs">
                             <NavbarBrand href="/">reactstrap</NavbarBrand>
                             <NavbarToggler onClick={this.toggle} />
                             <Collapse isOpen={this.state.isOpen} navbar>
@@ -82,6 +59,37 @@ class Navbar1 extends Component {
                             </Collapse>
                         </Navbar>
                     </div>
+                </MediaQuery> */}
+                <MediaQuery query="(min-device-width: 769px)">
+                    <div id="sidebar">
+                    <Navbar color="light" light expand="sm">
+                        <NavbarBrand href="/">reactstrap</NavbarBrand>
+                        <NavbarToggler onClick={this.toggle} />
+                        <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav className="ml-auto" navbar >
+                                <NavItem>
+                                    <Link className="p-2 navlink" to='/analysis'>Analysis</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="p-2 navlink" to='/about'>About</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="p-2 navlink" to='/galleries'>Galleries</Link>
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
+                    </Navbar>
+                    </div>
+                    {/* <Sidebar
+                        sidebar={<b>Sidebar content</b>}
+                        open={false}
+                        onSetOpen={this.onSetSidebarOpen}
+                        styles={{ sidebar: { background: "white" } }}
+                    >
+                        <button onClick={() => this.onSetSidebarOpen(true)}>
+                            Open sidebar
+                        </button>
+                    </Sidebar> */}
                 </MediaQuery>
             </div>
         )
