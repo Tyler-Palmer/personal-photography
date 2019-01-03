@@ -3,13 +3,12 @@
     width: 100%
 }
 
-#sidebar{
-    float: left;
-    z-index: 100;
-    position: absolute;
-}
 
 .vertical{
     display: flex;
     flex-direction: column;
+}
+
+.display{
+    display: none;
 }

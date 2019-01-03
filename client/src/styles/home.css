@@ -1,3 +1,8 @@
+@font-face { 
+    font-family: "TitilliumWeb-Black";
+    src: url('../fonts/Titillium_Web/TitilliumWeb-Black.ttf') format('ttf');
+    }
+
 html, body{
     height: 100%;
     width: 100%;
@@ -15,4 +20,36 @@ html, body{
 
 .image-gallery-image, img{
     height: 100%;
+}
+
+#homeBackground{
+    position: relative;
+    background-image: url(../images/blur-clean-clear.jpg);
+    background-size:100% auto;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+#homeBox{
+    z-index: 2;
+    position: absolute;
+    height: 40vh;
+    width: 60vw;
+    background: #009FFF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ec2F4B, #009FFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    opacity: .8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-family: "TitilliumWeb-Black";
+    font-size: 4em;
 }

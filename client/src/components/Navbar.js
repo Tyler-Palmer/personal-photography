@@ -33,34 +33,16 @@ class Navbar1 extends Component {
 
     }
     render() {
+        console.log(this.props)
         return (
             <div>
                 <MediaQuery maxWidth={768}>
-                        <Navbar color="light" light expand="sm">
-                            <NavbarBrand href="/">reactstrap</NavbarBrand>
-                            <NavbarToggler onClick={this.toggle} />
-                            <Collapse isOpen={this.state.isOpen} navbar>
-                                <Nav className="ml-auto" navbar>
-                                    <NavItem>
-                                        <Link className="p-2 navlink" to='/analysis'>Analysis</Link>
-                                    </NavItem>
-                                    <NavItem>
-                                        <Link className="p-2 navlink" to='/about'>About</Link>
-                                    </NavItem>
-                                    <NavItem>
-                                        <Link className="p-2 navlink" to='/galleries'>Galleries</Link>
-                                    </NavItem>
-                                </Nav>
-                            </Collapse>
-                        </Navbar>
-                </MediaQuery>
-                <MediaQuery minWidth={769}>
-                    <div id="sidebar">
+                <div className={!this.props.displays ? "display" : ''}>
                     <Navbar color="light" light expand="sm">
                         <NavbarBrand href="/">reactstrap</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
-                            <Nav className="ml-auto" navbar >
+                            <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     <Link className="p-2 navlink" to='/analysis'>Analysis</Link>
                                 </NavItem>
@@ -73,6 +55,27 @@ class Navbar1 extends Component {
                             </Nav>
                         </Collapse>
                     </Navbar>
+                </div>
+                </MediaQuery>
+                <MediaQuery minWidth={769}>
+                    <div className={!this.props.displays ? "display" : ''}>
+                        <Navbar color="light" light expand="sm">
+                            <NavbarBrand href="/">reactstrap</NavbarBrand>
+                            <NavbarToggler onClick={this.toggle} />
+                            <Collapse isOpen={this.state.isOpen} navbar>
+                                <Nav className="ml-auto sidebar1" navbar>
+                                    <NavItem>
+                                        <Link className="p-2 navlink" to='/analysis'>Analysis</Link>
+                                    </NavItem>
+                                    <NavItem>
+                                        <Link className="p-2 navlink" to='/about'>About</Link>
+                                    </NavItem>
+                                    <NavItem>
+                                        <Link className="p-2 navlink" to='/galleries'>Galleries</Link>
+                                    </NavItem>
+                                </Nav>
+                            </Collapse>
+                        </Navbar>
                     </div>
                 </MediaQuery>
             </div>

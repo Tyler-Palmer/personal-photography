@@ -1,14 +1,26 @@
 
 
 .image1{
-    height: 70px;
-    width: 100px;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     display: inline-block;
     // animation: slideInFromLeft 10s cubic-bezier(0.075, 0.82, 0.165, 1);
-    margin: 5px;
-    padding: 5px;
+}
+.landscape{
+  grid-column: span 2;
+}
+
+.portrait{
+  grid-row: span 2;
+}
+
+.square{
+  grid-column: 1/2;
+}
+
+.big-one{
+  grid-column: span 2;
+  grid-row: span 2; 
 }
 
 .image2{

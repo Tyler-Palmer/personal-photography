@@ -6,25 +6,28 @@ class NavbarProvider extends Component{
     constructor(){
         super()
         this.state = {
-            isHomePage: false
+            displays: false
         }
     }
 
-setSidebar = () => {
+setDisplay = () => {
     this.setState({
-        isHomePage: true
+        displays: true
+    }, () => {
+        console.log(this.state.isHomePage)
     })
 }
-noSidebar = () => {
+noDisplay = () => {
     this.setState({
-        isHomepage: false
+        displays: false
     })
 }
     render(){
         return(
             <Provider value={{
-                    setSidebar: this.setSidebar,
-                    noSidebar: this.noSidebar
+                    ...this.state,
+                    setDisplay: this.setDisplay,
+                    noDisplay: this.noDisplay
             }}>
                 {this.props.children}
             </Provider>

@@ -9,16 +9,16 @@ import { withNav } from '../context/NavbarProvider'
 
 
 class Galleries extends Component {
-    componentDidMount(){
-        this.props.noSidebar()
+    componentDidMount() {
+        this.props.setDisplay()
     }
     render() {
         console.log(this.props.gallery1)
         console.log(this.props.gallery2)
         return (
             <div id="galleries">
+                <h3>Gallery1</h3>
                 <div id="gallery1">
-                    <h3>Gallery1</h3>
                     {
                         this.props.gallery1.map((item, i) => <Gallery1 {...item} key={i} />)
                     }
