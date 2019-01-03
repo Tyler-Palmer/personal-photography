@@ -44,22 +44,30 @@
 }
 @for $i from 1 through 15 {
   .image1:nth-child(#{$i}) {
-      animation: slideInFromLeft $i + s ease-in-out;
+      animation: slideInFromLeft $i * 2 / 8 + 0.5 + s ease-in-out;
       // animation-delay: $i * (1s / 4);
   }
 }
 
 @for $i from 1 through 15 {
   .image2:nth-child(#{$i}) {
-      animation: slideInFromLeft $i + .5 + s ease-in-out;
+      animation: slideRotateZ $i * 2 / 8 + 0.5 + .5 + s ease-in-out;
       // animation-delay: $i * (1s / 4);
   }
 }
 
 @for $i from 1 through 15 {
   .image3:nth-child(#{$i}) {
-      animation: slideInFromLeft $i + 1 + s ease-in-out;
+      animation: slideRotateX $i  * 2 / 8 + 0.5 + 1 + s ease-in-out;
       // animation-delay: $i * (1s / 4);
+  }
+}
+
+@keyframes slideRotateZ{
+  from{
+    transform: translateX(-1000px) rotateZ(0deg)
+  } to{
+    transform: translateX(0) rotateZ(360deg)
   }
 }
 
@@ -69,5 +77,13 @@
   }
   100% {    
     transform: translateX(0) rotateY(360deg); 
+  }
+}
+
+@keyframes slideRotateX{
+  from{
+    transform: translateX(-1000px) rotateX(0deg)
+  } to{
+    transform: translateX(0) rotateX(360deg)
   }
 }

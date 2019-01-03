@@ -10,7 +10,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 class Home extends Component {
 
     componentDidMount() {
-        this.props.noDisplay()
+        this.props.setDisplay()
     }
 
     render() {

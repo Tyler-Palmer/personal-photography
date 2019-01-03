@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Lazyload } from 'react-lazyload'
 
 const Gallery1 = (props) => {
     const generateRandomClass = () => {
@@ -20,6 +21,7 @@ const Gallery1 = (props) => {
             <div className={`image1 gallerySlide`} style={{ backgroundImage: `url(${props.src})`, width: "100%", height: "100%" }}>
             </div>
         </Link>
+      
     )
 }
 

@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { withPhotos } from '../context/PhotoProvider'
 import '../styles/galleryview.css'
-import { Modal, ModalHeader, ModalBody } from 'reactstrap'
 import { withNav } from '../context/NavbarProvider'
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 class GalleryView extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            modal: false
+            photoIndex: 0,
+            isOpen: false,
         }
         this.toggle = this.toggle.bind(this)
     }
@@ -26,22 +28,19 @@ class GalleryView extends Component {
     render() {
         console.log(this.props)
         console.log(this.props.galleryData)
+        const { photoIndex, isOpen } = this.state;
         return (
             <div className="imageMenu">
-                <Modal  isOpen={this.state.modal} 
-                        toggle={this.toggle} 
-                        className={this.props.className}
-                        size={'lg'}
-                        autoFocus={'true'}
-                        centered={'true'}
-                        noRepeat={'norepeat'}>
-                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-                    <ModalBody style={{ backgroundImage: `url(${this.props.galleryData.src})`, width: "1000px", height: "1000px" }}>
-                    </ModalBody>
-                </Modal>
-                <div    className={`focusImage`} 
-                        style={{ backgroundImage: `url(${this.props.galleryData.src})`, width: "1000px", height: "1000px" }}
-                        onClick={this.toggle}>
+
+                {isOpen && (
+                    <Lightbox
+                        mainSrc={this.props.galleryData.src}
+                        onCloseRequest={() => this.setState({ isOpen: false })}
+                    />
+                )}
+                <div className={`focusImage`}
+                    style={{ backgroundImage: `url(${this.props.galleryData.src})`, width: "1000px", height: "1000px" }}
+                    onClick={() => this.setState({ isOpen: true })}>
                 </div>
                 <div className="infoBar">
 
@@ -52,3 +51,24 @@ class GalleryView extends Component {
 }
 
 export default withNav(withPhotos(GalleryView))
+
+//Use below to add cycling functionality
+
+// {isOpen && (
+//     <Lightbox
+//         mainSrc={images[photoIndex]}
+//         nextSrc={images[(photoIndex + 1) % images.length]}
+//         prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+//         onCloseRequest={() => this.setState({ isOpen: false })}
+//         onMovePrevRequest={() =>
+//             this.setState({
+//                 photoIndex: (photoIndex + images.length - 1) % images.length,
+//             })
+//         }
+//         onMoveNextRequest={() =>
+//             this.setState({
+//                 photoIndex: (photoIndex + 1) % images.length,
+//             })
+//         }
+//     />
+// )}

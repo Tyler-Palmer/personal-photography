@@ -12,3 +12,11 @@
 .display{
     display: none;
 }
+
+.nav-item{
+    padding-left: 8px;
+}
+
+.nav-link:hover{
+    text-decoration: none;
+}

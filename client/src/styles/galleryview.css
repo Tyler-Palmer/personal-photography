@@ -2,10 +2,12 @@
     display: grid;
     grid-template-columns: 1fr .4fr;
     grid-template-rows: 1fr;
+    margin: 0;
 }
 
 .focusImage{
     margin-left: 5px;
+    margin-top: 5px;
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
@@ -14,8 +16,11 @@
 }
 
 .infoBar{
+    margin-top: 5px;
     grid-column: 2/3;
     grid-row: 1/-1;
     background-color: rgba(0,0,0,.8);
     margin-right: 10px;
+    display: grid;
+    grid-template-rows: 10%;
 }
