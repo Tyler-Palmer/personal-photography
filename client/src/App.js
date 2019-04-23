@@ -18,6 +18,7 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/" render={props => <Home {...props} />} />
                     <Route path="/analysis" render={props => <Analysis {...props} />} />
+                    <Route path="/about" render={props => <Analysis {...props} />} />
                     <Route path="/galleries" render={props => <Galleries {...props} />} />
                     <Route path="/galleryView/:id" render = {props => <GalleryView {...props}/>} />
                 </Switch>

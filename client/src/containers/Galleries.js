@@ -17,6 +17,7 @@ class Galleries extends Component {
         console.log(this.props.gallery2)
         return (
             <div id="galleries">
+                <p>This gallery only includes test images served up by my database right now, but will be original images in the future.</p>
                 <div className="galleryBar">
                     <h3>Gallery1</h3>
                 </div>

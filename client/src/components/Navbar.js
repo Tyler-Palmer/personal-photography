@@ -40,11 +40,11 @@ class Navbar1 extends Component {
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                                    <i className="fa fa-pie-chart" aria-hidden="true"></i>
                                     <Link className="p-2 navlink" to='/analysis'>Analysis</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <i className="fa fa-user" aria-hidden="true"></i>
                                     <Link className="p-2 navlink" to='/about'>About</Link>
                                 </NavItem>
                                 <NavItem>
@@ -64,11 +64,11 @@ class Navbar1 extends Component {
                             <Collapse isOpen={this.state.isOpen} navbar>
                                 <Nav className="ml-auto sidebar1" navbar>
                                     <NavItem>
-                                        <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                                        <i className="fa fa-pie-chart" aria-hidden="true"></i>
                                         <Link className="p-2 navlink" to='/analysis'>Analysis</Link>
                                     </NavItem>
                                     <NavItem>
-                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <i className="fa fa-user" aria-hidden="true"></i>
                                         <Link className="p-2 navlink" to='/about'>About</Link>
                                     </NavItem>
                                     <NavItem>
