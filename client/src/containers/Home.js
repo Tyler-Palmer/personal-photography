@@ -16,28 +16,28 @@ class Home extends Component {
     render() {
         const images = [
             {
-                original: 'http://lorempixel.com/1000/600/nature/1/',
+                original: 'https://drive.google.com/open?id=1ejy54Fl6IqS8qldLhIAHz9D-XiW8iAAf',
                 thumbnail: 'http://lorempixel.com/250/150/nature/1/',
             },
             {
-                original: 'http://lorempixel.com/1000/600/nature/2/',
+                original: 'https://drive.google.com/open?id=1DKgyTGf8czW4ZEEm-x0FWnUuerRAy6ij',
                 thumbnail: 'http://lorempixel.com/250/150/nature/2/'
             },
             {
-                original: 'http://lorempixel.com/1000/600/nature/3/',
+                original: 'https://drive.google.com/open?id=1rF_dKEAJwtWaiGq7bBmNqnNYe7ZN1GcD',
                 thumbnail: 'http://lorempixel.com/250/150/nature/3/'
             }
         ]
         return (
             <div>
-                {/* <ImageGallery items={images}
+                <ImageGallery items={images.original}
                 showThumbnails={false}
                 showFullscreenButton={false}
                 showPlayButton={false}
                 autoPlay={true}
                 slideInterval={12000}
                 slideDuration={900}
-                useBrowserFullscreen={true} /> */}
+                useBrowserFullscreen={true} />
                 <div id="homeBackground">
                     <div id="homeBox" className="hvr-bounce-to-right">
                         <h1>Tyler Palmer</h1>
