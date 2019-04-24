@@ -19,6 +19,12 @@ html, body{
     width: 100%;
 }
 
+.home{
+    height: 100vh;
+    width: 100%;
+    overflow:hidden;
+}
+
 .image-gallery-right-nav, .image-gallery-left-nav{
     display: none;
 }
@@ -27,7 +33,7 @@ html, body{
     height: 100%;
 }
 
-#homeBackground{
+/* #homeBackground{
     position: relative;
     background-image: url(../images/blur-clean-clear.jpg);
     background-size:100% auto;
@@ -38,10 +44,10 @@ html, body{
     justify-content: center;
     align-items: center;
     z-index: 0;
-}
+} */
 
 #homeBox{
-    z-index: 2;
+    z-index: 5;
     /* position: absolute; */
     height: 26vh;
     width: 100%;
@@ -54,6 +60,9 @@ html, body{
     align-items: center;
     border-radius: 20px;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    padding: 10px;
+    position: relative;
+
 }
 
 #homeBox:hover{

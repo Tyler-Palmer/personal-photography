@@ -29,7 +29,7 @@ class Home extends Component {
         //     }
         // ]
         return (
-            <div>
+            <div className="home">
                 {/* <ImageGallery items={images.original}
                 showThumbnails={false}
                 showFullscreenButton={false}

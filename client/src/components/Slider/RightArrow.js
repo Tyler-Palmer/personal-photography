@@ -1,4 +1,5 @@
 import React from "react";
+import "./../../styles/rightarrow.scss"
 
 const RightArrow = (props) => {
     return (
