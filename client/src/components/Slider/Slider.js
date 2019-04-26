@@ -60,8 +60,8 @@ class Slider extends Component {
                     ))}
                 </div>
                 <div className="arrow-box">
-                    <LeftArrow prevSlide={this.prevSlide} />
-                    <RightArrow nextSlide={this.nextSlide} />
+                    {/* <RightArrow nextSlide={this.nextSlide} />
+                    <LeftArrow prevSlide={this.prevSlide} /> */}
                 </div>
             </div>
         );
