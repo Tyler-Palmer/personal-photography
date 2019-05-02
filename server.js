@@ -1,5 +1,4 @@
 const express = require('express')
-const app = express()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const PORT = process.env.PORT || 9000
@@ -10,21 +9,43 @@ const { buildSchema } = require('graphql')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
+const app = express()
 
 // Middleware
 app.use(express.json({limit: '200mb'}))
+
 app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, "client", "build")))
+
+const photos = []
+
+app.use(bodyParser.json())
+
 app.use(
     "/graphql",
     expressGraphQL({
         schema: buildSchema(`
+            type Photo {
+                _id: ID!
+                title: String!
+                description: String!
+                price: Float!
+                date: String!
+            }
+
+            input PhotoInput {
+                title: String!
+                description: String!
+                price: Float!
+                date: String!
+            }
+
             type RootQuery {
-                photos: [String!]!
+                photos: [Photo!]!
             }
 
             type RootMutation {
-                createPhoto(name: String!): String
+                createPhoto(photoInput: PhotoInput): Photo
             }
 
             schema {
@@ -34,11 +55,18 @@ app.use(
         `),
         rootValue: {
             photos: () => {
-                return ['thing1', 'thing2', 'thing3', 'thing4']
+                return photos
             },
-            createPhoto: (args) => {
-                const photoName = args.name
-                return photoName
+            createPhoto: args => {
+                const photo = {
+                    _id: Math.random().toString(),
+                    title: args.photoInput.title,
+                    description: args.photoInput.description,
+                    price: +args.photoInput.price,
+                    date: args.photoInput.date
+                }
+                photos.push(photo)
+                return photo
             }
         },
         graphiql: true
