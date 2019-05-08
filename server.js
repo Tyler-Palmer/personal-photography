@@ -21,62 +21,10 @@ const photos = []
 
 app.use(bodyParser.json())
 
-// app.use(
-//     "/graphql",
-//     expressGraphQL({
-//         schema: buildSchema(`
-//             type Event {
-//                 _id: ID!
-//                 title: String!
-//                 description: String!
-//                 price: Float!
-//                 date: String!
-//             }
-
-//             input EventInput {
-//                 title: String!
-//                 description: String!
-//                 price: Float!
-//                 date: String!
-//             }
-
-//             type RootQuery {
-//                 events: [Event!]!
-//             }
-
-//             type RootMutation {
-//                 createEvent(eventInput: EventInput): Event
-//             }
-
-//             schema {
-//                 query: RootQuery
-//                 mutation: RootMutation
-//             }
-//         `),
-//         rootValue: {
-//             events: () => {
-//                 return events
-//             },
-//             createPhoto: args => {
-//                 const event = {
-//                     _id: Math.random().toString(),
-//                     title: args.eventInput.title,
-//                     description: args.eventInput.description,
-//                     price: +args.eventInput.price,
-//                     date: args.eventInput.date
-//                 }
-//                 events.push(event)
-//                 return event
-//             }
-//         },
-//         graphiql: true
-//     })
-// )
-
 // Routes
 
 app.use('/photos', require('./routes/photos'))
-// app.use('/customer', require('./routes/customers'))
+app.use('/customer', require('./routes/customers'))
 app.use('/metadata', require('./routes/metadata'))
 app.use('/events', require('./routes/events'))
 // Connect to the DB
